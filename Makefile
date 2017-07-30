@@ -678,6 +678,12 @@ KBUILD_CFLAGS   += -O2
 endif
 endif
 
+# Processor-specific tunes for Exynos 8895
+KBUILD_CFLAGS	+= $(call cc-option,-mtune=exynos-m1.cortex-a53)
+
+# Disallow introduction of unaligned stores
+KBUILD_CFLAGS	+= $(call cc-option,--param=store-merging-allow-unaligned=0)
+
 # Tell gcc to never replace conditional load with a non-conditional one
 KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
 
