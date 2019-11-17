@@ -161,6 +161,12 @@ void dsim_pkt_go_ready(struct dsim_device *dsim);
 void dsim_pkt_go_enable(struct dsim_device *dsim, bool enable);
 #endif
 
+#ifdef CONFIG_PANEL_SMART_DIMMING
+	unsigned int smart_on;
+	void *smart_dim_data;
+	void *smart_dim_info;
+#endif
+
 static inline struct dsim_device *get_dsim_drvdata(u32 id)
 {
 	if (id)
