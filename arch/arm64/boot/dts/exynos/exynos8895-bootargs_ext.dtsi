@@ -1,0 +1,42 @@
+/*
+ * SAMSUNG bootargs_ext device tree source
+ *
+ * Copyright (c) 2018 Samsung Electronics Co., Ltd.
+ *             http://www.samsung.com
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/ {
+	fragment@model {
+		target-path = "/";
+		__overlay__ {
+			#address-cells = <2>;
+			#size-cells = <1>;
+
+		}; /* end of __overlay__ */
+	}; /* end of fragment */
+}; /* end of root */
+
+&chosen {
+	bootargs_ext = "loop.max_part=7 skip_initramfs rootwait ro init=/init";
+};
+
+/*
+&android {
+	vbmeta {
+		compatible = "android,vbmeta";
+		parts = "vbmeta,boot,system,vendor";
+	};
+};
+&system {
+	fsmgr_flags = "wait,avb";
+	status = "disabled";
+};
+&vendor {
+	fsmgr_flags = "wait,avb";
+	status = "okay";
+};
+*/

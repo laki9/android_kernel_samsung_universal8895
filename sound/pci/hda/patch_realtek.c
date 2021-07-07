@@ -771,7 +771,8 @@ static int alc_init(struct hda_codec *codec)
 
 	if (spec->init_hook)
 		spec->init_hook(codec);
-
+	
+	snd_hda_gen_init(codec);
 	alc_fix_pll(codec);
 	alc_auto_init_amp(codec, spec->init_amp);
 
